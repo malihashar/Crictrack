@@ -1,0 +1,265 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap');
+body{
+    background-color: rgb(13, 13, 13);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    
+}
+
+
+
+.input button{
+    background-color: rgb(22, 21, 21);
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    border-radius:10px;
+    height:90px;
+    margin-left:150px;
+    position: relative;
+    font-family: Clash Display;
+    text-underline-position: auto;
+
+
+
+}
+
+.input button::after {
+    content: '';
+    position: absolute;
+    height: 107%;
+    width: 101%;
+    border-radius: 1000px;
+    background-image: linear-gradient(to bottom right, red , yellow);
+    z-index: -1;
+    border-radius:10px;
+}
+
+.input button:hover {
+    z-index: 0;
+    box-shadow: 40px 0 100px red, -40px 0 100px rgb(255, 0, 247);
+}
+
+.circle {
+border-radius: 50%;
+width: 200px;
+height: 200px;
+background-color: transparent;
+
+}
+
+.circle::before {
+  content: "+";
+  height:15px;
+  width:30px;
+  font-size:35px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-family:courier;
+  color:white;
+  position:absolute;
+  top:120px;
+  left:170px
+}
+
+.my-form {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #121212;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-family: 'Clash Display', sans-serif;
+  color: aliceblue;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Smaller inputs where appropriate */
+.form-group input[type="number"],
+.form-group select {
+  height: 40px;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group n4{
+    
+}
+
+
+
+.form-group n3{
+    
+
+}
+
+.form-group n2{
+   
+
+}
+       
+
+.form-group n1{
+    
+
+}
+       
+       
+        
+.submit-btn {
+  margin-top: 20px;
+  height: 48px;
+  border-radius: 10px;
+  background: #161515;
+  color: white;
+  font-family: 'Clash Display', sans-serif;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Optional glow */
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #33c083, #6c6c36);
+  z-index: -1;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 40px rgba(150, 200, 150, 0.6);
+}
+
+
+.ct button{
+   padding:1em 2em;
+   background-color: #161a20 ;
+   border:none;
+   color:#f0f0f0;
+   border-radius:1000px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   position: relative;
+
+   display:flex;
+   justify-content: center;
+   align-items:center;
+}
+.ct button::after{
+    content:'';
+    position:absolute;
+    height:107%;
+    width:105%;
+    border-radius:1000px;
+    background-image: linear-gradient(to bottom right,red,yellow);
+    z-index:-1;
+
+}
+.ct button:hover{
+    z-index:0;
+    box-shadow:40px 0 100px red, -40px 0 100px yellow;
+}
+
+.cta button {
+   padding: 1em 2em;
+   /*background-color: rgba(22, 26, 32, 0.3); /* semi-transparent */
+   background-color: transparent;
+   border: none;
+   color: #f0f0f0;
+   border-radius: 1000px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 20px;
+   text-decoration: none;
+   
+}
+
+.cta button::after {
+    content: '';
+    position: absolute;
+    height: 107%;
+    width: 102%;
+    border-radius: 1000px;
+    background-image: linear-gradient(to bottom right, lightgray , gray);
+    z-index: -1;
+}
+
+.cta button:hover {
+    z-index: 0;
+    box-shadow: 40px 0 100px rgb(155, 137, 137), -40px 0 100px rgb(96, 96, 78);
+}
+
+header{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:30px 10%;
+}
+
+.buttons{
+    display: flex;
+justify-content: flex-end;  /* moves them to the right side */
+align-items: center;        /* centers them vertically */
+gap: 10px;       
+
+}
+
+.logo {
+    display:flex;
+    justify-content:flex-end;
+    font-family: Clash Display;
+    color:rgb(255, 250, 250);
+    margin-right: auto;
+    
+
+
+    height: auto;      /* fix logo height */
+    width: auto;  
+    cursor:pointer;
+    position: relative;
+    background-color:transparent ;
+
+
+}
