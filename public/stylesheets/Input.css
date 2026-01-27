@@ -263,3 +263,51 @@ gap: 10px;
 
 
 }
+
+.players {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+}
+
+/* Player card button */
+.player-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  color: white;
+
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* Hover glow */
+.player-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 165, 0, 0.4),
+    0 8px 30px rgba(255, 165, 0, 0.15);
+}
+
+/* Name = main focus */
+.player-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Position = smaller, subtle */
+.player-position {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  text-transform: capitalize;
+}

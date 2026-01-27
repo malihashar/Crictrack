@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const userModel=require("./users");
+const User = require("../db");
 
-app.use(express.static("./public"))
 /* Home page */
 router.get('/', function(req, res) {
   res.render('index');
@@ -13,13 +14,15 @@ router.get('/a', function(req, res) {
 });
 
 /* /b → input.ejs */
-router.get('/b', function(req, res) {
+router.get('/b', async function(req, res) {
   res.render('input');
+  
 });
 
 /* /c → user_input.ejs */
-router.get('/c', function(req, res) {
-  res.render('user_input');
+router.get('/c', async function(req, res) {
+  const users = await User.find().sort({ _id: -1 }); 
+  res.render('user_input', { users });
 });
 
 module.exports = router;
