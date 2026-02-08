@@ -16,8 +16,18 @@
        
     </header>
     <body>
+        <div class="players">
+  <% users.forEach(user => { %>
+    <button class="player-card" href="/d/<%= user._id %>">
+      <div class="player-name"><%= user.name %></div>
+      <div class="player-position"><%= user.position %></div>
+      <a class="delete-button" href="/delete/<%= user._id %>">Delete</a>
+      
+    </button>
+  <% }) %>
+</div>
 
-        <a class="input "href="file:///C:/Users/ali/OneDrive/Desktop/Website_1/Input2.html"><button>New player</button></a>
+        <a class="input" href="/b"><button>New player</button></a>
         <div class="circle"></div>
 
     </body>

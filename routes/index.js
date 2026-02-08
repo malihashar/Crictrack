@@ -25,5 +25,13 @@ router.get('/c', async function(req, res) {
   res.render('user_input', { users });
 });
 
+router.get('/d', function(req, res) {
+  res.render("user_info");
+});
+
+router.get('/delete/:id', async function(req, res) {
+    let users= await User.findOneAndDelete({_id: req.params.id})
+    res.redirect('/c');
+});
 module.exports = router;
 
