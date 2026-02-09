@@ -25,12 +25,13 @@ router.get('/c', async function(req, res) {
   res.render('user_input', { users });
 });
 
-router.get('/d', function(req, res) {
-  res.render("user_info");
+router.get('/d/:userid', async function(req, res) {
+  const user = await User.findOne({ _id: req.params.userid });
+  res.render("user_info",{user});
 });
 
 router.get('/delete/:id', async function(req, res) {
-    let users= await User.findOneAndDelete({_id: req.params.id})
+    let users= await User.findOneAndDelete({_id: new mongoose.Types.ObjectId(req.params.id)})
     res.redirect('/c');
 });
 module.exports = router;
