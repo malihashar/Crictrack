@@ -45,5 +45,9 @@ router.post('/update/:userid', async function(req, res) {
     let user= await User.findOneAndUpdate({_id: req.params.userid}, {comments,name,position,height,age}, {new:true});
     res.redirect('/c');
 });
+
+router.get('/stats/:userid',async function(req,res){
+  res.render("stats",{userid:req.params.userid});
+})
 module.exports = router;
 
