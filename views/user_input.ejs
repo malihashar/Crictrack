@@ -18,10 +18,11 @@
     <body>
         <div class="players">
   <% users.forEach(user => { %>
-    <a class="" href="/d/<%= user._id %>"><button class="player-card">
+    <a class="" text="white" href="/d/<%= user._id %>"><button class="player-card">
       <div class="player-name"><%= user.name %></div>
       <div class="player-position"><%= user.position %></div>
       <a class="delete-button" href="/delete/<%= user._id %>">Delete</a>
+      <a class="edit-button" href="/edit/<%= user._id %>">Edit</a>
       
     </button> </a>
   <% }) %>

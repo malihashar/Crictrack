@@ -22,7 +22,7 @@ router.post("/create", async function(req, res){
         age:Number(req.body.age),
         height:req.body.height,
         position:req.body.position,
-        comments: req.body.message
+        comments: req.body.comments 
      });
       console.log("user",user);
       res.redirect("/c");

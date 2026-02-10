@@ -31,7 +31,18 @@ router.get('/d/:userid', async function(req, res) {
 });
 
 router.get('/delete/:id', async function(req, res) {
-    let users= await User.findOneAndDelete({_id: new mongoose.Types.ObjectId(req.params.id)})
+    let users= await User.findOneAndDelete({_id: req.params.id})
+    res.redirect('/c');
+});
+
+router.get('/edit/:id', async function(req, res) {
+    let user= await User.findOne({_id: req.params.id})
+    res.render('edit_user',{user});
+});
+
+router.post('/update/:userid', async function(req, res) {
+    let{comments,name,position,height,age}= req.body
+    let user= await User.findOneAndUpdate({_id: req.params.userid}, {comments,name,position,height,age}, {new:true});
     res.redirect('/c');
 });
 module.exports = router;

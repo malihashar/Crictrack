@@ -1,16 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-     <link rel="stylesheet" href="/stylesheets/input.css"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        User Information!
-        <%= user.name %>
-    </h1>
+
     
+<html>
+<head>
+    <title>Cric Track - Profile</title>
+    <link rel="stylesheet" href="/stylesheets/input.css">
+</head>
+
+<header>
+    <div class="logo">
+        <h2>Cric Track</hh2>
+    </div>
+    <div class="buttons">
+        <a class="ct" href="/c"><button>Home</button></a>
+    </div>
+</header>
+
+<body>
+
+<div class="profile-container">
+    <div class="profile-card">
+
+        <h1 class="profile-name"><%= user.name %></h1>
+
+        <div class="profile-info">
+            <div class="info-row">
+                <span>Age</span>
+                <strong><%= user.age %></strong>
+            </div>
+
+            <div class="info-row">
+                <span>Height</span>
+                <strong><%= user.height %></strong>
+            </div>
+
+            <div class="info-row">
+                <span>Position</span>
+                <strong><%= user.position %></strong>
+            </div>
+        </div>
+
+        <div class="profile-comment">
+            <p><%= user.comments %></p>
+        </div>
+
+        <!-- Stats button goes to stats page -->
+        <a href="/stats/<%= user._id %>">
+            <button class="stats-btn">Add Stats</button>
+        </a>
+
+    </div>
+</div>
+
 </body>
 </html>

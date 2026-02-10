@@ -311,3 +311,66 @@ gap: 10px;
   margin-top: 4px;
   text-transform: capitalize;
 }
+
+/*   User info page css    */
+
+/* Profile page */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.profile-card {
+  width: 420px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 30px;
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  color: white;
+}
+
+.profile-name {
+  font-family: "Clash Display", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-comment {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.stats-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, red, orange);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Clash Display", sans-serif;
+  transition: 0.2s ease;
+}
+
+.stats-btn:hover {
+  box-shadow: 0 0 40px rgba(255, 100, 0, 0.6);
+}
