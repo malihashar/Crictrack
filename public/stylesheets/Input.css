@@ -375,3 +375,59 @@ gap: 10px;
 .stats-btn:hover {
   box-shadow: 0 0 40px rgba(255, 100, 0, 0.6);
 }
+
+
+/* Stats pop up page*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(255, 253, 253);
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2000;
+}
+
+#statsModal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* important */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: transparent;
+  padding: 20px;
+  margin: 10% auto;
+  width: 300px;
+  border-radius: 8px;
+}

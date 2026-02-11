@@ -49,5 +49,8 @@ router.post('/update/:userid', async function(req, res) {
 router.get('/stats/:userid',async function(req,res){
   res.render("stats",{userid:req.params.userid});
 })
+router.get('/stats/add' ,async function(req,res){
+  res.render('add_stats');
+} )
 module.exports = router;
 

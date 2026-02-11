@@ -5,7 +5,10 @@
   <title>Stats Calendar</title>
 
   <!-- FullCalendar CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css" rel="stylesheets/input">
+
+  <link rel="stylesheet" href="../stylesheets/input.css">
+
 
   <style>
     body {
@@ -35,6 +38,32 @@
   <h1>Stats Calendar</h1>
 
   <div id="calendar"></div>
+  <div id="statsModal" class="modal">
+  <div class="modal-content">
+    <h2>Add Stats</h2>
+
+    <form action="/stats/add" method="POST">
+      <input type="hidden" name="player" value="<%= userid %>"> 
+      <input type="hidden" name="date" id="statDate"> 
+
+      <label>Runs</label>
+      <input type="number" name="runs"> 
+
+      <label>Wickets</label>
+      <input type="number" name="wickets"> 
+
+      <label>Overs</label>
+      <input type="number" name="overs"> 
+
+      <label>Notes</label>
+      <textarea name="notes"></textarea>
+
+      <button type="submit">Save Stats</button>
+      <button type="button" onclick="closeModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
 
   <!-- FullCalendar JS -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
@@ -53,10 +82,16 @@
         },
 
         dateClick: function(info) {
-          alert("Add stats for: " + info.dateStr);
-          // Later this will open your stats form
-        }
-      });
+  document.getElementById("statDate").value = info.dateStr;
+  document.getElementById("statsModal").style.display = "flex";
+}
+
+
+
+}
+          
+        
+      );
 
       calendar.render();
     });
