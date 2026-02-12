@@ -1,36 +1,100 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> Cric Track</title>
-        <link rel="stylesheet" href="/stylesheets/input.css">
-    </head>
-    <header>
-        <div class="logo">
-         <h2>
-          Cric Track
-         </h2>
-        </div>
-        <div class="buttons">
-        <a class="ct" href=""><button>Stats</button></a>
-        <a class="cta" href=""><button>Profile</button></a>
-        </div>
-       
-    </header>
-    <body>
-        <div class="players">
-  
-    <% stats.forEach(function(user){ %>
-  <a href="/d/<%= user._id %>">
-    <button class="player-card">
-      <div class="player-name"><%= user.wickets %></div>
-      <div class="player-position"><%= user.runs %></div>
-    </button>
-  </a>
-<% }) %>
+<head>
+  <title>Cric Track</title>
+  <link rel="stylesheet" href="/stylesheets/input.css">
+</head>
 
+<body style="color: white;">
+
+<header>
+  <div class="logo">
+    <h2>Cric Track</h2>
+  </div>
+  <div class="buttons">
+    <a class="ct" href="/stats/<%= player._id %>">
+      <button>Stats</button>
+    </a>
+    <a class="cta" href="/d/<%= player._id %>">
+      <button>Profile</button>
+    </a>
+  </div>
+</header>
+
+<h1 style="text-align:center;"><%= player.name %>'s Stats</h1>
+
+<div class="players">
+
+  <% if (stats.length === 0) { %>
+    <p style="text-align:center;">No stats yet.</p>
+  <% } else { %>
+
+    <% stats.forEach(function(match) { %>
+
+      <button class="player-card" onclick="openModal(
+        '<%= match.runs %>',
+        '<%= match.wickets %>',
+        '<%= match.overs %>',
+        '<%= match.notes %>'
+      )">
+
+        <!-- BIG DATE -->
+        <div class="player-name" style="color: white; font-size: 22px;">
+          <%= match.date %>
+        </div>
+
+        <!-- Smaller text under -->
+        <div class="player-position" style="color: white; font-size: 14px;">
+          Click here
+        </div>
+        <a class="delete-button" style="color: rgb(226, 217, 29)"  href="/stats/delete/<%= match._id %>">
+            Delete
+      </a>
+
+      <a class="edit-button" style="color: rgb(207, 29, 29);" href="/stats/edit/<%= match._id %>">Edit</a>
+
+      </button>
+
+    <% }); %>
+
+  <% } %>
 
 </div>
 
-        
 
-    </body>
+<!-- Modal -->
+<div id="statsModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+
+  <div style="background:#111; padding:30px; border-radius:10px; width:300px; text-align:center;">
+
+    <button onclick="closeModal()" style="float:right;">X</button>
+
+    <h2>Match Stats</h2>
+
+    <p><strong>Runs:</strong> <span id="mRuns"></span></p>
+    <p><strong>Wickets:</strong> <span id="mWickets"></span></p>
+    <p><strong>Overs:</strong> <span id="mOvers"></span></p>
+    <p><strong>Notes:</strong> <span id="mNotes"></span></p>
+
+  </div>
+
+</div>
+
+
+<script>
+function openModal(runs, wickets, overs, notes) {
+  document.getElementById("mRuns").textContent = runs;
+  document.getElementById("mWickets").textContent = wickets;
+  document.getElementById("mOvers").textContent = overs;
+  document.getElementById("mNotes").textContent = notes;
+
+  document.getElementById("statsModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("statsModal").style.display = "none";
+}
+</script>
+
+</body>
 </html>

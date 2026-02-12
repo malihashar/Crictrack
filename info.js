@@ -5,6 +5,12 @@ mongoose.connect("mongodb://127.0.0.1:27017/crictrack")
 
   
 const userStats= new mongoose.Schema({
+  player: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+  date: {type:String, required:true},
   runs: {type:Number, required:true},
   wickets: Number, 
   overs: Number,

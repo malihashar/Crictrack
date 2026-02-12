@@ -50,10 +50,57 @@ router.post('/update/:userid', async function(req, res) {
 router.get('/stats/:userid',async function(req,res){
   res.render("stats",{userid:req.params.userid});
 })
-router.get('/add', async function(req, res) {
-  const stats = await Stats.find();
-  res.render("add_stats", { stats });
+router.get('/add/:userid', async function(req, res) {
+  const playerId = req.params.userid;
+
+  console.log("Player ID:", playerId);
+
+  const player = await User.findById(playerId);
+  console.log("Player found:", player);
+
+  const stats = await Stats.find({ player: playerId });
+
+  res.render("add_stats", { player, stats });
 });
+
+
+router.get("/stats/delete/:id", async function(req, res) {
+  try {
+    const stat = await Stats.findById(req.params.id);
+
+    if (!stat) {
+      return res.redirect("/c");
+    }
+
+    const playerId = stat.player;
+
+    await Stats.findByIdAndDelete(req.params.id);
+
+    res.redirect("/add/" + playerId);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting stat");
+  }
+});
+
+router.get("/stats/edit/:id", async function(req, res) {
+  const stat = await Stats.findById(req.params.id);
+    const playerId = stat.player;
+
+    await Stats.findByIdAndUpdate(req.params.id);
+
+    res.redirect("stats/change" + playerId);
+
+  
+});
+
+router.get("/stats/change/:id", async function(req,res){
+  res.render("edit_user")
+
+});
+
+
 
 module.exports = router;
 
