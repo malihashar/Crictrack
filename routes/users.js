@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const User = require("../db");
+
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -8,14 +11,14 @@ router.get('/', function(req, res, next) {
 
 router.post("/create", async function(req, res){
   try {
-    console.log("RAW BODY:", req.body);
+   console.log("RAW BODY:", req.body);
 
     const age = parseInt(req.body.age, 10);
     const height = parseInt(req.body.height, 10);
 
     if (isNaN(age)) {
       return res.status(400).send("Age must be a number");
-    }
+    } 
     
         const user=await User.create({
         name:req.body.name,

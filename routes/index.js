@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const userModel=require("./users");
 const User = require("../db");
+const Stats = require('../info');
 
 /* Home page */
 router.get('/', function(req, res) {
@@ -49,8 +50,10 @@ router.post('/update/:userid', async function(req, res) {
 router.get('/stats/:userid',async function(req,res){
   res.render("stats",{userid:req.params.userid});
 })
-router.get('/stats/add' ,async function(req,res){
-  res.render('add_stats');
-} )
+router.get('/add', async function(req, res) {
+  const stats = await Stats.find();
+  res.render("add_stats", { stats });
+});
+
 module.exports = router;
 

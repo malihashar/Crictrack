@@ -1,11 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        <title> Cric Track</title>
+        <link rel="stylesheet" href="/stylesheets/input.css">
+    </head>
+    <header>
+        <div class="logo">
+         <h2>
+          Cric Track
+         </h2>
+        </div>
+        <div class="buttons">
+        <a class="ct" href=""><button>Stats</button></a>
+        <a class="cta" href=""><button>Profile</button></a>
+        </div>
+       
+    </header>
+    <body>
+        <div class="players">
+  
+    <% stats.forEach(function(user){ %>
+  <a href="/d/<%= user._id %>">
+    <button class="player-card">
+      <div class="player-name"><%= user.wickets %></div>
+      <div class="player-position"><%= user.runs %></div>
+    </button>
+  </a>
+<% }) %>
+
+
+</div>
+
+        
+
+    </body>
 </html>

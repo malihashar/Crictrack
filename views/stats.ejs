@@ -42,7 +42,7 @@
   <div class="modal-content">
     <h2>Add Stats</h2>
 
-    <form action="/stats/add" method="POST">
+    <form action="/stats/show" method="POST">
       <input type="hidden" name="player" value="<%= userid %>"> 
       <input type="hidden" name="date" id="statDate"> 
 
@@ -58,8 +58,8 @@
       <label>Notes</label>
       <textarea name="notes"></textarea>
 
-      <button type="submit">Save Stats</button>
-     <button type="button" class="ct" onclick="closeModal()">Cancel</button> 
+      <button type="submit" >Save Stats</button>
+     <button type="button" onclick="closeModal()">Cancel</button> 
     </form>
   </div>
 </div>
