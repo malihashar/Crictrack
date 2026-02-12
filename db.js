@@ -13,4 +13,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+const userStats= new mongoose.Schema({
+  runs: Number,
+  wickets: Number,
+  overs: Number,
+  notes: String
+
+})
+
+const Stats= mongoose.model("Stats",userStats)
+
 module.exports = User;
