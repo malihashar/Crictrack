@@ -10,7 +10,6 @@
          </h2>
         </div>
         <div class="buttons">
-        <a class="ct" href=""><button>Stats</button></a>
         <a class="cta" href=""><button>Profile</button></a>
         </div>
        
@@ -19,7 +18,7 @@
         <div class="players">
   <% users.forEach(user => { %>
     <a class="" text="white" href="/d/<%= user._id %>"><button class="player-card">
-      <div class="player-name" text-decoration: none; style="color: rgb(255, 255, 255);"><%= user.name %></div>
+      <div class="player-name"  style="color: rgb(255, 255, 255);"><%= user.name %></div>
       <div class="player-position" style="color: rgb(255, 255, 255);"><%= user.position %></div>
       <a class="delete-button" style="color: rgb(99, 174, 82);" href="/delete/<%= user._id %>">Delete</a>
       <a class="edit-button" style="color: rgb(207, 29, 29);" href="/edit/<%= user._id %>">Edit</a>
@@ -29,7 +28,7 @@
 </div>
 
         <a class="input" href="/b"><button>New player</button></a>
-        <div class="circle"></div>
+        
 
     </body>
 </html>

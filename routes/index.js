@@ -87,16 +87,26 @@ router.get("/stats/delete/:id", async function(req, res) {
   }
 });
 
-router.get("/stats/edit/:id", async function(req, res) {
-  const stat = await Stats.findById(req.params.id);
-    const playerId = stat.player;
+router.post("/stats/edit/:id", async function(req, res) {
+  const { runs, wickets, overs, notes } = req.body;
 
-    await Stats.findByIdAndUpdate(req.params.id);
+  const stat = await Stats.findByIdAndUpdate(
+    req.params.id,
+    { runs, wickets, overs, notes },
+    { new: true }
+  );
 
-    res.redirect("edit_user");
+  if (!stat) {
+    return res.send("Stat not found");
+  }
 
-  
+  if (!stat.player) {
+    return res.send("Player ID missing from stat");
+  }
+
+  res.redirect("/add/" + stat.player);
 });
+
 
 router.get("/stats/change/:id", async function(req, res) {
   const stat = await Stats.findById(req.params.id);

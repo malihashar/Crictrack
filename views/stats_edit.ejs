@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="../stylesheets/input.css">
 </head>
 <body>
-   <form action="" method="POST" class="my-form">
+   <form action="/stats/edit/<%=stat._id%>" method="POST" class="my-form">
     <link rel="stylesheet" href="/stylesheets/input.css"> 
 
   <div class="form-group">
-    <label>Name</label>
+    <label>Runs</label>
     <input value="<%= stat.runs %>" type="number" name="runs">
   </div>
 
   <div class="form-group">
-    <label>Age</label>
+    <label>Wickets</label>
     <input value="<%= stat.wickets %>" type="number" name="wickets">
   </div>
 
   <div class="form-group">
-    <label>Height (cm)</label>
+    <label>Overs</label>
     <input value="<%= stat.overs %>" type="number" name="overs">
   </div>
 
