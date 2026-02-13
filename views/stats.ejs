@@ -5,69 +5,61 @@
   <title>Stats Calendar</title>
 
   <!-- FullCalendar CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css" rel="stylesheets/input">
-
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../stylesheets/input.css">
-
-
-  <style>
-    body {
-      background: #0d0d0d;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    #calendar {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #111;
-      padding: 15px;
-      border-radius: 12px;
-    }
-  </style>
-  <div class="buttons">
-        <a class="cta" href="/d/<%= userid %>"><button>Profile</button></a>
-    </div>
 </head>
+
 <body>
+
+  <div class="buttons">
+    <a class="cta" href="/d/<%= userid %>">
+      <button>Profile</button>
+    </a>
+  </div>
 
   <h1>Stats Calendar</h1>
 
   <div id="calendar"></div>
+
+  <!-- Modal -->
   <div id="statsModal" class="modal">
-  <div class="modal-content">
-    <h2>Add Stats</h2>
+    <div class="modal-content">
 
-    <form action="/stats/show" method="POST">
+      <form class="my-form" action="/stats/show" method="POST">
+        <h2>Add Stats</h2>
 
-      <input type="hidden" name="playerId" value="<%= userid %>"> 
-      <input type="hidden" name="date" id="statDate"> 
+        <input type="hidden" name="playerId" value="<%= userid %>">
+        <input type="hidden" name="date" id="statDate">
 
-      <label>Runs</label>
-      <input type="number" name="runs"> 
+        <div class="form-group">
+          <label>Runs</label>
+          <input type="number" name="runs" required>
+        </div>
 
-      <label>Wickets</label>
-      <input type="number" name="wickets"> 
+        <div class="form-group">
+          <label>Wickets</label>
+          <input type="number" name="wickets" required>
+        </div>
 
-      <label>Overs</label>
-      <input type="number" name="overs"> 
+        <div class="form-group">
+          <label>Overs</label>
+          <input type="number" name="overs" required>
+        </div>
 
-      <label>Notes</label>
-      <textarea name="notes"></textarea>
+        <div class="form-group">
+          <label>Notes</label>
+          <textarea name="notes"></textarea>
+        </div>
 
-      <button type="submit" >Save Stats</button>
-     <button type="button" onclick="closeModal()">Cancel</button> 
-    </form>
+        <div class="modal-buttons">
+          <button type="submit" class="submit-btn">Save Stats</button>
+          <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+        </div>
+
+      </form>
+
+    </div>
   </div>
-</div>
-
 
   <!-- FullCalendar JS -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
@@ -86,19 +78,24 @@
         },
 
         dateClick: function(info) {
-  document.getElementById("statDate").value = info.dateStr;
-  document.getElementById("statsModal").style.display = "flex";
-}
-
-
-
-}
-          
-        
-      );
+          document.getElementById("statDate").value = info.dateStr;
+          document.getElementById("statsModal").style.display = "flex";
+        }
+      });
 
       calendar.render();
     });
+
+    function closeModal() {
+      document.getElementById("statsModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("statsModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 
 </body>

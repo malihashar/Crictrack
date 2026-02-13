@@ -377,62 +377,100 @@ gap: 10px;
 }
 
 
-/* Stats pop up page*/
+/* ===== Stats pop up page (fixed) ===== */
+
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal-content {
-  background: #111;
+  background: #121212;
   padding: 25px;
-  border-radius: 12px;
-  width: 300px;
+  border-radius: 14px;
+  width: 360px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  color: rgb(255, 253, 253);
+  gap: 15px;
+  color: white;
 }
 
 .modal-content input,
 .modal-content textarea {
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.432);
-}
-
-.modal-content {
-  position: relative;
-  z-index: 2000;
-}
-
-#statsModal {
-  display: none;
-  position: fixed;
-  z-index: 1000; /* important */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-  background: transparent;
-  padding: 20px;
-  margin: 10% auto;
-  width: 300px;
+  padding: 10px;
   border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
 }
+
+.modal-buttons .submit-btn,
+.modal-buttons .cancel-btn {
+  flex: 1;
+  height: 48px;
+  margin-top: 0 !important;   /* override old margin */
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-top: 0 
+}
+
+.cancel-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Clash Display', sans-serif;
+}
+
+.cancel-btn:hover {
+  background: #333;
+}
+
 .player-name,
 .player-position{
   text-decoration: none;
 }
+
+.modal-content label {
+  color: white;
+}
+
+.fc {
+  color: white;
+}
+
+.fc-daygrid-day-number {
+  color: white;
+}
+
+.fc-col-header-cell-cushion {
+  color: white;
+}
+
+.fc-toolbar-title {
+  color: white;
+}
+
+.fc-button {
+  background: #1e1e1e !important;
+  border: none !important;
+  color: white !important;
+}
+
+.fc-button:hover {
+  background: #333 !important;
+}
+
+
