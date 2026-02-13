@@ -58,10 +58,13 @@ router.get('/add/:userid', async function(req, res) {
   const player = await User.findById(playerId);
   console.log("Player found:", player);
 
-  const stats = await Stats.find({ player: playerId });
+  const stats = await Stats
+    .find({ player: playerId })
+    .sort({ _id: -1 });   
 
   res.render("add_stats", { player, stats });
 });
+
 
 
 router.get("/stats/delete/:id", async function(req, res) {
@@ -90,15 +93,21 @@ router.get("/stats/edit/:id", async function(req, res) {
 
     await Stats.findByIdAndUpdate(req.params.id);
 
-    res.redirect("stats/change" + playerId);
+    res.redirect("edit_user");
 
   
 });
 
-router.get("/stats/change/:id", async function(req,res){
-  res.render("edit_user")
+router.get("/stats/change/:id", async function(req, res) {
+  const stat = await Stats.findById(req.params.id);
 
+  if (!stat) {
+    return res.send("Stat not found");
+  }
+
+  res.render("stats_edit", { stat });
 });
+
 
 
 
