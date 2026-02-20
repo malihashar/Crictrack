@@ -1,4 +1,4 @@
-# 🏏 Crictrack
+## 🏏 Crictrack
 
 Crictrack is a cricket tracking web application built using **Node.js**, **Express**, **EJS**, and **MongoDB**.  
 It provides a structured web interface to manage and track cricket-related data, users, and statistics.
