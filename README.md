@@ -102,7 +102,7 @@ mongoose.connect("your-mongodb-connection-string");
 
 ---
 
-## 📌 Available Routes
+# 📌 Available Routes
 
 - `/` → Home page  
 - `/users` → User-related routes  
