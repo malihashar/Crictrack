@@ -474,3 +474,45 @@ gap: 10px;
 }
 
 
+/* ===== Sidebar ===== */
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+height:100%;
+width:220px;
+background:#0d0d0d;
+border-right:1px solid rgba(255,255,255,0.1);
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:1000;
+}
+
+.sidebar h3{
+color:white;
+font-family:"Clash Display";
+margin-bottom:20px;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+padding:10px;
+border-radius:8px;
+transition:0.2s;
+font-family:"Clash Display";
+}
+
+.sidebar a:hover{
+background:#1e1e1e;
+}
+
+
+/* Push page content right */
+
+body{
+margin-left:220px;
+}

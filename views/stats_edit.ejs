@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="../stylesheets/input.css">
 </head>
 <body>
+<div class="sidebar">
+  <h3>Cric Track</h3>
+
+  <a href="/c">Home</a>
+  <a href="/b">New Player</a>
+
+  <% if (typeof user !== "undefined") { %>
+    <a href="/d/<%= user._id %>">Profile</a>
+    <a href="/stats/<%= user._id %>">Stats</a>
+  <% } %>
+
+</div>
    <form action="/stats/edit/<%=stat._id%>" method="POST" class="my-form">
     <link rel="stylesheet" href="/stylesheets/input.css"> 
 

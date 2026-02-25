@@ -6,7 +6,18 @@
 </head>
 
 <body style="color: white;">
+<div class="sidebar">
+  <h3>Cric Track</h3>
 
+  <a href="/c">Home</a>
+  <a href="/b">New Player</a>
+
+  <% if (typeof user !== "undefined") { %>
+    <a href="/d/<%= user._id %>">Profile</a>
+    <a href="/stats/<%= user._id %>">Stats</a>
+  <% } %>
+
+</div>
 <header>
   <div class="logo">
     <h2>Cric Track</h2>
