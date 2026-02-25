@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="/stylesheets/input.css"> 
 
   <div class="form-group">
+    <label>Match name</label>
+    <input value="<%= stat.matchName || '' %>" type="text" name="matchName" placeholder="e.g. Finals vs Team A">
+  </div>
+
+  <div class="form-group">
     <label>Runs</label>
     <input value="<%= stat.runs %>" type="number" name="runs">
   </div>

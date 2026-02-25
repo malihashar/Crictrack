@@ -10,6 +10,7 @@ router.post("/show", async function(req,res){
     const stats = await Stats.create({
       player: req.body.playerId,
       date: req.body.date,
+      matchName: req.body.matchName || "",
       runs: Number(req.body.runs),
       wickets: Number(req.body.wickets),
       overs: Number(req.body.overs),

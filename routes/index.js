@@ -88,11 +88,11 @@ router.get("/stats/delete/:id", async function(req, res) {
 });
 
 router.post("/stats/edit/:id", async function(req, res) {
-  const { runs, wickets, overs, notes } = req.body;
+  const { runs, wickets, overs, notes, matchName } = req.body;
 
   const stat = await Stats.findByIdAndUpdate(
     req.params.id,
-    { runs, wickets, overs, notes },
+    { runs, wickets, overs, notes, matchName: matchName || "" },
     { new: true }
   );
 

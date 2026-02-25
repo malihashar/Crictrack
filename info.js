@@ -11,6 +11,7 @@ const userStats= new mongoose.Schema({
     required: true
   },
   date: {type:String, required:true},
+  matchName: { type: String, default: "" },
   runs: {type:Number, required:true},
   wickets: Number, 
   overs: Number,
