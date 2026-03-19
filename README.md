@@ -13,7 +13,6 @@ It provides a structured web interface to manage and track cricket-related data,
 - Static file serving (CSS, JavaScript, Images)
 - Development support with Nodemon
 - Modular folder structure for scalability
-
 ---
 ## 🛠 Tech Stack
 
