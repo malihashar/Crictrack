@@ -16,6 +16,7 @@ It provides a structured web interface to manage and track cricket-related data,
 - Development support with Nodemon
 - Modular folder structure for scalability
 ---
+
 ## 🛠 Tech Stack
 
 - **Node.js** – JavaScript runtime
